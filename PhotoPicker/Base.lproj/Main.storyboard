@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gdu-5G-aKt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gdu-5G-aKt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,7 +54,6 @@
                         <outlet property="doneButton" destination="xYL-bQ-iYe" id="XFw-gm-1gG"/>
                         <outlet property="imageView" destination="fSE-YJ-a3V" id="XqM-pp-0Fd"/>
                         <outlet property="overlayView" destination="Hbw-ws-lZF" id="5aT-nw-Oci"/>
-                        <outlet property="startStopButton" destination="DwJ-Yp-Tcc" id="jGO-7b-p8Y"/>
                         <outlet property="takePictureButton" destination="IKf-bw-7Mu" id="1qh-uX-W7n"/>
                     </connections>
                 </viewController>
@@ -79,11 +78,6 @@
                                 <barButtonItem title="Delayed" id="RP5-NN-4T9">
                                     <connections>
                                         <action selector="delayedTakePhoto:" destination="2" id="djH-YU-bxW"/>
-                                    </connections>
-                                </barButtonItem>
-                                <barButtonItem title="Start" id="DwJ-Yp-Tcc">
-                                    <connections>
-                                        <action selector="startTakingPicturesAtIntervals:" destination="2" id="a3o-Nn-7iv"/>
                                     </connections>
                                 </barButtonItem>
                             </items>

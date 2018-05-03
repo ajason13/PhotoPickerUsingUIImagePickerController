@@ -38,6 +38,9 @@ class APLViewController: UIViewController, UINavigationControllerDelegate, UIIma
 		if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
 			toolbarItems = self.toolbarItems?.filter { $0 != cameraButton }
 		}
+        
+        // TODO: Check if front camera is available
+        // TODO: Check if rear flash is available
     }
 
     override func didReceiveMemoryWarning() {
@@ -183,49 +186,6 @@ class APLViewController: UIViewController, UINavigationControllerDelegate, UIIma
 			self.startStopButton?.isEnabled = true
 		})
 		RunLoop.main.add(cameraTimer, forMode: RunLoopMode.defaultRunLoopMode)
-	}
-	
-	@IBAction func startTakingPicturesAtIntervals(_ sender: UIBarButtonItem) {
-		/*
-		Start the timer to take a photo every 1.5 seconds.
-		
-		CAUTION: for the purpose of this sample, we will continue to take pictures indefinitely.
-		Be aware we will run out of memory quickly.  You must decide the proper threshold number of
-		photos allowed to take from the camera. One solution to avoid memory constraints is to save each
-		taken photo to disk rather than keeping all of them in memory. In low memory situations sometimes
-		our "didReceiveMemoryWarning" method will be called in which case we can recover some memory
-		and keep the app running.
-		*/
-		
-		// Change the button to represent "Stop" taking pictures.
-		startStopButton?.title = NSLocalizedString("Stop", comment: "Title for overlay view controller start/stop button")
-		startStopButton?.action = #selector(stopTakingPicturesAtIntervals)
-		
-		// These buttons can be working while we are running.
-		doneButton?.isEnabled = false
-		delayedPhotoButton?.isEnabled = false
-		takePictureButton?.isEnabled = false
-
-		// Start taking pictures right away.
-		cameraTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { timer in
-			self.imagePickerController.takePicture()
-		}
-	}
-	
-	@IBAction func stopTakingPicturesAtIntervals(_ sender: UIBarButtonItem) {
-		// Stop and reset the timer.
-		cameraTimer.invalidate()
-
-		finishAndUpdate()
-		
-		// Make these buttons available again.
-		self.doneButton?.isEnabled = true
-		self.takePictureButton?.isEnabled = true
-		self.delayedPhotoButton?.isEnabled = true
-		
-		// Reset the button back to start taking pictures again.
-		startStopButton?.title = NSLocalizedString("Start", comment: "Title for overlay view controller start/stop button")
-		startStopButton?.action = #selector(startTakingPicturesAtIntervals)
 	}
 	
 	// MARK: - UIImagePickerControllerDelegate
